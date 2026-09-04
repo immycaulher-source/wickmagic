@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-nlws^ops7-txlkg&tr-(s^y2mcsv^^7arhleub(0t!so_#r80^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -145,5 +145,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWS_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://wickmagic.vercel.app",
+]
+CORS_ALLOW_CREDENTIALS = True
