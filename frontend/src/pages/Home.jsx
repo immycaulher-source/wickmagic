@@ -59,7 +59,7 @@ function Home() {
     if (editingNoteId) {
       // UPDATE existing note
       api
-        .put(`/api/notes/update/${editingNoteId}/`, { title, content })
+        .patch(`/api/notes/update/${editingNoteId}/`, { title, content })
         .then((res) => {
           if (res.status === 200) {
             toast.success("Note Updated!");
