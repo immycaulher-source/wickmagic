@@ -101,7 +101,7 @@ function Home() {
         marginBottom: "1.5rem",
         borderBottom: "1px solid #eee"
       }}>
-        <h1 style={{ margin: 0 }}>WickMagic Notes</h1>
+        <h1 style={{ margin: 0 }}>WickMagic</h1>
         <button 
           onClick={() => navigate("/logout")}
           style={{
