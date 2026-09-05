@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Added useNavigate
 import api from "../api";
 import Note from '../components/Note';
 import '../styles/Home.css';
@@ -12,6 +13,8 @@ function Home() {
   
   // Track which note is currently being edited (null when creating)
   const [editingNoteId, setEditingNoteId] = useState(null);
+
+  const navigate = useNavigate(); // Navigation hook for logout
 
   useEffect(() => {
     getNotes();
@@ -89,6 +92,32 @@ function Home() {
 
   return (
     <div className="home-container">
+      {/* Top Header with Title and Logout Button */}
+      <header style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "1rem 0",
+        marginBottom: "1.5rem",
+        borderBottom: "1px solid #eee"
+      }}>
+        <h1 style={{ margin: 0 }}>WickMagic Notes</h1>
+        <button 
+          onClick={() => navigate("/logout")}
+          style={{
+            backgroundColor: "#ff4d4f",
+            color: "#fff",
+            border: "none",
+            padding: "8px 16px",
+            borderRadius: "4px",
+            cursor: "pointer",
+            fontWeight: "bold"
+          }}
+        >
+          Logout
+        </button>
+      </header>
+
       <h2>Notes</h2>
 
       <div className="notes-section">
