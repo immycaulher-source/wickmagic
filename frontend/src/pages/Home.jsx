@@ -92,33 +92,17 @@ function Home() {
 
   return (
     <div className="home-container">
-      {/* Top Header with Title and Logout Button */}
-      <header style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "1rem 0",
-        marginBottom: "1.5rem",
-        borderBottom: "1px solid #eee"
-      }}>
-        <h1 style={{ margin: 0 }}>WickMagic</h1>
+      <header className="app-header">
+        <div className="brand"><div className="brand-mark" aria-hidden="true">W</div><div><p className="brand-name">WickMagic</p><span>Your personal workspace</span></div></div>
         <button 
           onClick={() => navigate("/logout")}
-          style={{
-            backgroundColor: "#ff4d4f",
-            color: "#fff",
-            border: "none",
-            padding: "8px 16px",
-            borderRadius: "4px",
-            cursor: "pointer",
-            fontWeight: "bold"
-          }}
+          className="logout-button"
         >
           Logout
         </button>
       </header>
 
-      <h2>Notes</h2>
+      <section className="page-intro"><div><p className="eyebrow">Your notes</p><h1>Everything on your mind.</h1><p>Keep ideas, reminders, and plans collected in a private space.</p></div><button className="primary-button" onClick={() => { if (showForm) resetForm(); else setShowForm(true); }}>{showForm ? "Cancel" : "+ New note"}</button></section>
 
       <div className="notes-section">
         {notes.length === 0 ? (
@@ -137,7 +121,7 @@ function Home() {
 
       {showForm && (
         <div className="form-card">
-          <h2>{editingNoteId ? "Edit Note" : "Create a Note"}</h2>
+          <div className="form-card-heading"><h2>{editingNoteId ? "Edit note" : "Create a note"}</h2><p>{editingNoteId ? "Make your changes, then save when you’re ready." : "A clear title makes it easier to find later."}</p></div>
           <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title</label>
             <input
@@ -158,28 +142,11 @@ function Home() {
               onChange={(e) => setContent(e.target.value)}
             ></textarea>
 
-            <input 
-              type="submit" 
-              value={editingNoteId ? "Update Note" : "Submit"} 
-            />
+            <button className="primary-button" type="submit">{editingNoteId ? "Save changes" : "Create note"}</button>
           </form>
         </div>
       )}
 
-      <div className="bottom-btn-container">
-        <button 
-          className="submit-btn-style" 
-          onClick={() => {
-            if (showForm) {
-              resetForm();
-            } else {
-              setShowForm(true);
-            }
-          }}
-        >
-          {showForm ? "Cancel" : "+ Create New Note"}
-        </button>
-      </div>
     </div>
   );
 }

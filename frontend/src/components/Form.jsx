@@ -32,9 +32,16 @@ function Form({ route, method }) {
     };
 
     return (
+        <main className="auth-page">
+          <section className="auth-card" aria-labelledby="auth-title">
+            <div className="brand-mark" aria-hidden="true">W</div>
+            <p className="eyebrow">WickMagic</p>
+            <h1 id="auth-title">{name === 'Login' ? 'Welcome back' : 'Create your workspace'}</h1>
+            <p className="auth-subtitle">{name === 'Login' ? 'Sign in to keep your thoughts organized.' : 'Start capturing your best ideas in one place.'}</p>
         <form onSubmit={handleSubmit} className="form-container">
-            <h1>{name}</h1>
+            <label className="field-label" htmlFor="username">Username</label>
             <input
+                id="username"
                 className='form-input'
                 type='text'
                 value={username}
@@ -42,7 +49,9 @@ function Form({ route, method }) {
                 placeholder='Username'
                 required
             />
+            <label className="field-label" htmlFor="password">Password</label>
             <input
+                id="password"
                 className='form-input'
                 type='password'
                 value={password}
@@ -54,25 +63,26 @@ function Form({ route, method }) {
                 {loading ? 'Processing...' : name}
             </button>
 
-            {/* Toggle link between Login and Register */}
-            <div style={{ marginTop: '15px', textAlign: 'center' }}>
+            <div className="auth-switch">
                 {method === 'login' ? (
-                    <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                    <p>
                         Don't have an account?{' '}
-                        <Link to="/register" style={{ color: '#007bff', textDecoration: 'none', fontWeight: 'bold' }}>
+                        <Link to="/register">
                             Create Account
                         </Link>
                     </p>
                 ) : (
-                    <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                    <p>
                         Already have an account?{' '}
-                        <Link to="/login" style={{ color: '#007bff', textDecoration: 'none', fontWeight: 'bold' }}>
+                        <Link to="/login">
                             Login Here
                         </Link>
                     </p>
                 )}
             </div>
         </form>
+        </section>
+        </main>
     );
 }
 

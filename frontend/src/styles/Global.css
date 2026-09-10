@@ -1,0 +1,10 @@
+:root { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #172033; background: #f6f7fb; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+.eyebrow { margin: 0 0 .5rem; color: #5e5ce6; font-size: .73rem; font-weight: 750; letter-spacing: .11em; text-transform: uppercase; }
+.brand-mark { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 12px; color: #fff; font-weight: 800; background: linear-gradient(135deg, #6f6df2, #4442a9); box-shadow: 0 8px 18px rgba(79, 77, 183, .23); }
+.empty-page { min-height: 100vh; display: grid; place-items: center; padding: 2rem; text-align: center; }
+.empty-page h1 { margin: 0; font-size: clamp(2rem, 6vw, 3.25rem); letter-spacing: -.05em; }
+.empty-page p:last-child { color: #667085; }
