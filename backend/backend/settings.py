@@ -151,7 +151,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://wickmagic.vercel.app","http://localhost:8000","https://puppetmaster.live",
+    "https://wickmagic.vercel.app","http://localhost:8000","https://www.puppetmaster.live",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
