@@ -104,21 +104,6 @@ function Home() {
 
       <section className="page-intro"><div><p className="eyebrow">Your notes</p><h1>Everything on your mind.</h1><p>Keep ideas, reminders, and plans collected in a private space.</p></div><button className="primary-button" onClick={() => { if (showForm) resetForm(); else setShowForm(true); }}>{showForm ? "Cancel" : "+ New note"}</button></section>
 
-      <div className="notes-section">
-        {notes.length === 0 ? (
-          <p className="no-notes">No notes available. Create one below!</p>
-        ) : (
-          notes.map((note) => (
-            <Note 
-              note={note} 
-              onDelete={deleteNote} 
-              onEdit={startEditing} 
-              key={note.id} 
-            />
-          ))
-        )}
-      </div>
-
       {showForm && (
         <div className="form-card">
           <div className="form-card-heading"><h2>{editingNoteId ? "Edit note" : "Create a note"}</h2><p>{editingNoteId ? "Make your changes, then save when you’re ready." : "A clear title makes it easier to find later."}</p></div>
@@ -146,6 +131,23 @@ function Home() {
           </form>
         </div>
       )}
+      
+      <div className="notes-section">
+        {notes.length === 0 ? (
+          <p className="no-notes">No notes available. Create one below!</p>
+        ) : (
+          notes.map((note) => (
+            <Note 
+              note={note} 
+              onDelete={deleteNote} 
+              onEdit={startEditing} 
+              key={note.id} 
+            />
+          ))
+        )}
+      </div>
+
+
 
     </div>
   );
